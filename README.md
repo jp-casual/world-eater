@@ -9,5 +9,8 @@ I've settled on a procedurally generated, infinite world, top-down, 2D, browser-
 What the Game Currently is:
 The player is a yellow square able to navigate an infinite world of empty and pellet-populated tiles using arrow keys. There is currently no interaction with the world or pellets beyond navigation.
 
-Notes for self:
-Open the repo in a codespace
+## Notes for self:
+While in the codespace terminal:
+    - I can preview my game using npm run dev
+    - To assemble and publish a build to gh-pages, I need to use the commands npm run build && npm run deploy.
+
