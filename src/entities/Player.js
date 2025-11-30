@@ -9,27 +9,37 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.speed = 200;
   }
 
-  update(cursors) {
-    const velocity = { x: 0, y: 0 };
-    const speed = this.speed;
+  update(inputManager) {
+    const movement = inputManager.getMovementVector();
+    const angle = inputManager.getMovementAngle();
 
-    if (cursors.left.isDown) velocity.x = -speed;
-    else if (cursors.right.isDown) velocity.x = speed;
-    if (cursors.up.isDown) velocity.y = -speed;
-    else if (cursors.down.isDown) velocity.y = speed;
+    // Apply velocity
+    this.setVelocity(movement.x * this.speed, movement.y * this.speed);
 
-    this.setVelocity(velocity.x, velocity.y);
-
-    // Choose animation
-    if (velocity.x !== 0 || velocity.y !== 0) {
-      if (velocity.y > 0) this.anims.play('walk_down', true);
-      else if (velocity.y < 0) this.anims.play('walk_up', true);
-      else if (velocity.x > 0) this.anims.play('walk_right', true);
-      else if (velocity.x < 0) this.anims.play('walk_left', true);
+    // Handle animation
+    if (angle !== null) {
+      const direction = this.getDirection(angle);
+      this.anims.play(`walk_${direction}`, true);
     } else {
-      this.anims.stop()
+      this.anims.stop();
       this.setFrame('walk_down_01');
     }
   }
-}
 
+  getDirection(angle) {
+    // Convert radians to degrees and normalize to 0-360
+    let degrees = (angle * 180 / Math.PI + 360) % 360;
+    
+    // 8-directional movement zones (45° each)
+    if (degrees >= 337.5 || degrees < 22.5) return 'right';
+    if (degrees >= 22.5 && degrees < 67.5) return 'down_right';
+    if (degrees >= 67.5 && degrees < 112.5) return 'down';
+    if (degrees >= 112.5 && degrees < 157.5) return 'down_left';
+    if (degrees >= 157.5 && degrees < 202.5) return 'left';
+    if (degrees >= 202.5 && degrees < 247.5) return 'up_left';
+    if (degrees >= 247.5 && degrees < 292.5) return 'up';
+    if (degrees >= 292.5 && degrees < 337.5) return 'up_right';
+    
+    return 'down'; // fallback
+  }
+}

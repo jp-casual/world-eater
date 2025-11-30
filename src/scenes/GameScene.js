@@ -1,5 +1,6 @@
 import Player from '../entities/Player.js';
 import ChunkManager from '../entities/ChunkManager.js';
+import inputManager from '../entities/InputManager.js';
 
 export default class GameScene extends Phaser.Scene {
     constructor() {
@@ -7,19 +8,23 @@ export default class GameScene extends Phaser.Scene {
     }
 
     create() {
+        // Setup input
+        this.inputManager = new inputManager(this);
+
         // Setup world
         this.chunkManager = new ChunkManager(this);
         
         // Setup player
         this.player = new Player(this, 0, 0);
         this.cameras.main.startFollow(this.player);
-        
-        // Input
-        this.cursors = this.input.keyboard.createCursorKeys();
     }
 
     update() {
-        this.player.update(this.cursors);
+        // Update input state
+        this.inputManager.update();
+
+        // Update game objects with input
+        this.player.update(this.inputManager);
         this.chunkManager.update(this.player.x, this.player.y);
 
         // Debug info

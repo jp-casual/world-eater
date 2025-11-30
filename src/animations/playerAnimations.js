@@ -13,7 +13,7 @@ export default function createPlayerAnimations(scene) {
   scene.anims.create({
     key: 'walk_down',
     frames: scene.anims.generateFrameNames('player_move', {
-      prefix: 'walk_down_', start: 1, end: 4, zeroPad: 2
+      prefix: 'walk_down_', start: 1, end: 8, zeroPad: 2
     }),
     frameRate: 8,
     repeat: -1
@@ -22,7 +22,7 @@ export default function createPlayerAnimations(scene) {
   scene.anims.create({
     key: 'walk_up',
     frames: scene.anims.generateFrameNames('player_move', {
-      prefix: 'walk_up_', start: 1, end: 4, zeroPad: 2
+      prefix: 'walk_up_', start: 1, end: 8, zeroPad: 2
     }),
     frameRate: 8,
     repeat: -1
@@ -31,7 +31,7 @@ export default function createPlayerAnimations(scene) {
   scene.anims.create({
     key: 'walk_left',
     frames: scene.anims.generateFrameNames('player_move', {
-      prefix: 'walk_left_', start: 1, end: 4, zeroPad: 2
+      prefix: 'walk_left_', start: 1, end: 8, zeroPad: 2
     }),
     frameRate: 8,
     repeat: -1
@@ -40,7 +40,43 @@ export default function createPlayerAnimations(scene) {
   scene.anims.create({
     key: 'walk_right',
     frames: scene.anims.generateFrameNames('player_move', {
-      prefix: 'walk_right_', start: 1, end: 12, zeroPad: 2
+      prefix: 'walk_right_', start: 1, end: 8, zeroPad: 2
+    }),
+    frameRate: 8,
+    repeat: -1
+  });
+  
+  scene.anims.create({
+    key: 'walk_down_left',
+    frames: scene.anims.generateFrameNames('player_move', {
+      prefix: 'walk_left_', start: 1, end: 8, zeroPad: 2
+    }),
+    frameRate: 8,
+    repeat: -1
+  });
+
+    scene.anims.create({
+    key: 'walk_down_right',
+    frames: scene.anims.generateFrameNames('player_move', {
+      prefix: 'walk_right_', start: 1, end: 8, zeroPad: 2
+    }),
+    frameRate: 8,
+    repeat: -1
+  });
+
+    scene.anims.create({
+    key: 'walk_up_left',
+    frames: scene.anims.generateFrameNames('player_move', {
+      prefix: 'walk_up_left_', start: 1, end: 8, zeroPad: 2
+    }),
+    frameRate: 8,
+    repeat: -1
+  });
+
+    scene.anims.create({
+    key: 'walk_up_right',
+    frames: scene.anims.generateFrameNames('player_move', {
+      prefix: 'walk_up_right_', start: 1, end: 8, zeroPad: 2
     }),
     frameRate: 8,
     repeat: -1
