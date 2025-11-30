@@ -9,8 +9,8 @@ export default class BootScene extends Phaser.Scene {
     // Player atlases
     this.load.atlas(
       'player_move',
-      '/assets/sprites/player/move/player_move.png',
-      '/assets/sprites/player/move/player_move.json'
+      'assets/sprites/player/move/player_move.png',
+      'assets/sprites/player/move/player_move.json'
     );
 
     //this.load.atlas(
