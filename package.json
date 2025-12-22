@@ -4,6 +4,7 @@
   "description": "Small game project to practice working with GitHub, VS Code, and Copilot.",
   "main": "vite.config.js",
   "scripts": {
+    "compile-ink": "inklecate -o public/narrative/compiled/ src/ink/**/*.ink",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vite",
     "build": "vite build",
@@ -14,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "inkjs": "^2.3.2",
     "phaser": "^3.90.0"
   },
   "devDependencies": {
