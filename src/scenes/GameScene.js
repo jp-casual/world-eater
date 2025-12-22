@@ -23,6 +23,9 @@ export default class GameScene extends Phaser.Scene {
         // Setup player
         this.player = new Player(this, 0, 0);
         this.cameras.main.startFollow(this.player);
+        
+        // Note: Camera zoom removed - Scale.FIT mode in main.js handles all scaling
+        // Adjust scale.width/height in main.js to control how zoomed in the game feels
 
         // Initialize narrative system asynchronously
         this.narrative = new NarrativeEngine(this);

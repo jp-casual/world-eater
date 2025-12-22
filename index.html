@@ -36,12 +36,13 @@
     }
     
     main {
-      flex: 1;
+      flex: 1;                                /* Grow to fill vertical space */
       display: flex;
       gap: 20px;
       padding: 20px;
-      align-items: center;
+      align-items: stretch;                   /* Stretch children to full height */
       justify-content: center;
+      min-height: 0;                          /* Allow flex shrinking */
     }
     
     .sidebar {
@@ -61,6 +62,7 @@
     }
     
     #game-container {
+      flex: 1;                                /* Grow to fill available space */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -69,6 +71,8 @@
       border: 2px solid #444;
       border-radius: 8px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      min-width: 0;                           /* Allow flex shrinking */
+      min-height: 0;                          /* Allow flex shrinking */
     }
     
     #game {
@@ -90,7 +94,7 @@
   
   <main>
     <aside class="sidebar">
-      <h3>Left Panel</h3>
+      <h3>This game is a personal project I'm using to learn how to use Github with AI agents. I'm building it using Phaser 3 and JavaScript. Two things I'd never worked with before this project.</h3>
       <!-- Reserved for future content -->
     </aside>
     
@@ -99,7 +103,7 @@
     </div>
     
     <aside class="sidebar">
-      <h3>Right Panel</h3>
+      <h3>Right Panel: Coming soon!!! Ads! Just kidding. I would probably start a patreon before that, but I think I'm a long way off from that yet.</h3>
       <!-- Reserved for future content -->
     </aside>
   </main>
